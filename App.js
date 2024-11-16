@@ -34,7 +34,7 @@ export default function App() {
             return;
         }
         try {
-          await axios.post('http://<seu-ip-local>:3000/users', {
+          await axios.post('http://<192.168.15.11>:3000/users', {
             cpf,
             nome,
             idade: parseInt(idade),
@@ -91,8 +91,17 @@ export default function App() {
                 value={endereco}
                 editable={false}
             />
-            <Button title="Cadastrar" onPress={cadastrarUsuario} />
-            <Button title="Listar Usuários" onPress={listarUsuarios} />
+            <Button
+                title="Cadastrar"
+                onPress={cadastrarUsuario}
+                color="#7a5f9b"
+            />
+            <Button
+                title="Listar Usuários"
+                onPress={listarUsuarios}
+                color="#7a5f9b"
+            />
+
             <FlatList
                 data={users}
                 keyExtractor={(item) => item.id.toString()}
@@ -116,7 +125,7 @@ const styles = StyleSheet.create({
     
     },
     card: {
-        width: '90%',
+        width: '100%',
         backgroundColor: '#402f5a',
         borderRadius: 10,
         padding: 20,
@@ -135,19 +144,19 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 50,
-        backgroundColor: '#5e4b72', // Tons ainda mais claros para os campos de entrada
+        backgroundColor: '#5e4b72', 
         borderRadius: 8,
-        paddingHorizontal: 15,
         fontSize: 16,
         color: '#fff',
         marginBottom: 15,
     },
     button: {
         height: 50,
-        backgroundColor: '#7a5f9b', // Botão roxo mais claro
+        backgroundColor: '#402f5a', 
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
+        borderRightColor: 10,
     },
     buttonText: {
         fontSize: 16,
