@@ -34,7 +34,7 @@ export default function App() {
             return;
         }
         try {
-          await axios.post('http://<192.168.15.11>:3000/users', {
+          await axios.post('http://<192.168.2.22>>:3000/users', {
             cpf,
             nome,
             idade: parseInt(idade),
@@ -49,7 +49,7 @@ export default function App() {
 
     const listarUsuarios = async () => {
         try {
-            const response = await axios.get('http://<seu-ip-local>:3000/users');
+            const response = await axios.get('http://<192.168.2.22>:3000/users');
             setUsers(response.data);
         } catch (error) {
             Alert.alert('Erro', 'Falha ao listar usuários!');
@@ -86,11 +86,13 @@ export default function App() {
                 onBlur={buscarEndereco}
             />
             <TextInput
-                style={styles.input}
+                style={[styles.input, { height: Math.max(40, endereco.length * 2) }]}
                 placeholder="Endereço"
                 value={endereco}
                 editable={false}
+                multiline={true}
             />
+
             <Button
                 title="Cadastrar"
                 onPress={cadastrarUsuario}
@@ -128,7 +130,6 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#402f5a',
         borderRadius: 10,
-        padding: 20,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
@@ -143,13 +144,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     input: {
-        height: 50,
-        backgroundColor: '#5e4b72', 
+        minHeight: 50,
+        backgroundColor: '#5e4b72',
         borderRadius: 8,
         fontSize: 16,
         color: '#fff',
         marginBottom: 15,
+        textAlignVertical: 'top',
     },
+
     button: {
         height: 50,
         backgroundColor: '#402f5a', 
