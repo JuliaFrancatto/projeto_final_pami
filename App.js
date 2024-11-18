@@ -28,6 +28,14 @@ export default function App() {
         }
     };
 
+    const limparCampos = () => {
+        setCpf('');
+        setNome('');
+        setIdade('');
+        setCep('');
+        setEndereco('');
+    };
+
     const cadastrarUsuario = async () => {
         if (!cpf || !nome || !idade || !cep || !endereco) {
             Alert.alert('Erro', 'Preencha todos os campos!');

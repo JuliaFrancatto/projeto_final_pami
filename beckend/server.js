@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-
+app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
 const app = express();
 const PORT = 3000;
 
